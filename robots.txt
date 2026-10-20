@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://joeyolivari.github.io/sitemap.xml
