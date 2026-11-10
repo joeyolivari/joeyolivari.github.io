@@ -16,7 +16,7 @@ nav a[aria-current="page"]{text-decoration:underline;text-underline-offset:6px}
 .offer-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem}
 .offer{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:5px;overflow:hidden;background:#fbfaf6;transition:border-color .15s,background .15s}
 .offer:hover{border-color:#9fb194;background:#fff}
-.offer img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;object-position:right center;display:block;border-bottom:1px solid var(--line)}
+.offer img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;object-position:center;display:block;border-bottom:1px solid var(--line)}
 .offer-body{padding:1.5rem;display:flex;flex-direction:column;gap:.75rem;flex:1}
 .offer-kicker{font-size:.7rem;letter-spacing:.11em;font-weight:700;color:var(--muted)}
 .offer h3{font-size:1.6rem;font-weight:500;letter-spacing:-.03em}
