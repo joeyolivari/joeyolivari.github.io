@@ -40,3 +40,26 @@
 8. **Performance and layout:** run Lighthouse and inspect LCP, INP, CLS on live Pages before declaring performance results.
 
 All sample figures are fictional and are not customer outcomes. No autoplay video or third-party animation library was added.
+
+## Header single-underline rebuild — November 11, 2026
+
+**Reported defect:** two lines appeared below selected navigation links, and some pages lacked a selected state.
+
+### Root causes identified
+- `styles-v11.css` applied the browser's **text-decoration underline** to `nav a[aria-current="page"]`.
+- `site-polish-v4.css` separately drew a **green background-gradient underline**. Both were simultaneously visible.
+- `page-transition-v1.css` crossfaded both old and new header snapshots; navigation changes briefly showed two different page states.
+
+### Source-of-truth correction
+- `styles-v12.css`: removed the legacy active text-decoration and now owns the **only** active indicator: a 2px green `::after` pseudo-element on `.nav-active`. Non-selected navigation links have no underline, even on hover.
+- `site-polish-v5.css`: removed all redundant nav underline and background-gradient rules.
+- `page-transition-v2.css`: header snapshot switches immediately instead of crossfading old and new active lines. Page content keeps its subtle transition.
+- All six pages now share one seven-link navigation. Home, Services, Career Tools and project case studies have one active item; Privacy remains an auxiliary footer-only page without a false active main-nav link.
+- `language-v17.js` translates the new Home label without changing the bilingual switcher.
+- Updated stylesheet filenames are new, reducing the risk of displaying previously cached CSS.
+
+### Tests and evidence
+- Parsed and compared the current source across all six pages: all expected links, one active state per represented main page, zero competing CSS underline rules, and preserved quote form and language selector.
+- Reproduced the rebuilt navigation in a standalone local Chromium smoke test at **320px, 375px, 768px and 1440px**, including longer Spanish text. All tested states showed exactly one 2px green active indicator, no extra background or text underline, and no horizontal overflow.
+- The local test is a *representative header test*, not a fully rendered screenshot of the published GitHub Pages site.
+- Public GitHub Pages remained unreachable from the available environment. Production browser rendering, CDN publication, and live tap transitions remain **unverified**.
