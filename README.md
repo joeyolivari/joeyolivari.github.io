@@ -12,7 +12,7 @@ Website: https://joeyolivari.github.io/
 - `privacy.html` — privacy note
 - `ai-command-center.html`, `sql-quest.html` — case studies
 
-The inquiry form has no backend: it opens a pre-filled email in the visitor's own mail app. Sample workbooks in `assets/samples/` use fictional data only.
+The inquiry form uses FormSubmit as a third-party form processor. Successful submissions can redirect to a branded thank-you page after FormSubmit handles the request. Email delivery and FormSubmit activation must be tested externally. Sample workbooks in `assets/samples/` use fictional data only.
 
 ## Deploy
 
