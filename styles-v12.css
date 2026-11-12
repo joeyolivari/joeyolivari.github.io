@@ -24,7 +24,7 @@ header > nav > a:not(:last-child) {
 header > nav > a:not(:last-child)::after {
   content:none;
 }
-header > nav > a[aria-current="page"]:not(:last-child)::after {
+header > nav > a.nav-active:not(:last-child)::after {
   content:"";
   display:block;
   position:absolute;
@@ -36,7 +36,7 @@ header > nav > a[aria-current="page"]:not(:last-child)::after {
   background:#7fa26a;
   pointer-events:none;
 }
-header > nav > a:not([aria-current="page"]):not(:last-child):hover {
+header > nav > a:not(.nav-active):not(:last-child):hover {
   color:#3d7450;
 }
 @media (prefers-reduced-motion:reduce) {
