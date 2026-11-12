@@ -1,0 +1,100 @@
+/* Website visual QA and finish — November 2026
+   Purpose: harmonize spacing, type, focus, mobile layouts and motion.
+   Navigation's ONE green active underline continues to be owned solely by styles-v13.css.
+   Do NOT add another active-link underline here. */
+:root{--finish-ease:cubic-bezier(.22,1,.36,1);--finish-ring:#487e55;--finish-radius:12px;--finish-shadow:0 18px 42px -34px rgba(13,43,29,.45)}
+body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body,main,header,footer{min-width:0}
+main{min-height:48vh}
+img,svg,video{max-width:100%}
+img{height:auto}
+:where(h1,h2,h3){text-wrap:balance}
+:where(p,li,dd){overflow-wrap:break-word}
+:where(section[id],article[id],div[id]){scroll-margin-top:28px}
+:is(.hero,.case-hero) h1{letter-spacing:-.055em}
+.hero h1{font-size:clamp(2.8rem,6.5vw + .5rem,6.35rem);line-height:1.065;max-width:17ch}
+.case-hero h1{font-size:clamp(2.25rem,4.9vw + .55rem,4.85rem);line-height:1.12;max-width:22ch}
+:is(.section-head,.assurance .section-head) h2{max-width:24ch}
+.case-lead,.intro p,.case-hero p{max-width:68ch}
+:is(.offer,.sample,.visual,.case-lab,.assurance-card,.story-board,.excel-compare,.quote-step,.faq-item,.package-detail){border-radius:var(--finish-radius)}
+.offer,.sample,.assurance-card{box-shadow:0 2px 0 rgba(17,50,33,.015)}
+.offer:hover,.sample:hover,.assurance-card:hover{box-shadow:var(--finish-shadow)}
+.offer-body{min-height:0}
+.offer img,.visual img,.sample img{object-fit:cover}
+.case-meta{gap:12px}
+.case-meta>div{min-width:0;border:1px solid #d4dfd1;border-radius:9px;background:#f1f4ed;padding:16px}
+.case-meta dd{overflow-wrap:anywhere}
+.case-body{min-width:0}
+.case-body .case-layout,.case-layout>*{min-width:0}
+.case-body p,.case-body li{line-height:1.75}
+.case-image-wrap img{display:block;object-fit:contain;max-height:740px}
+.case-nav a{transition:color 180ms ease,background-color 180ms ease,padding-left 180ms ease}
+.case-nav a:hover{color:#24603b}
+.contact{border-radius:14px}
+.contact h2{font-size:clamp(2.25rem,4.9vw + .5rem,4.4rem)}
+.quote-step,.report-demo,.excel-compare,.case-lab-panel{box-shadow:var(--finish-shadow)}
+.quote-step-header h3{max-width:24ch}
+.field :is(input,select,textarea){border-radius:7px}
+.field :is(input,select,textarea):focus{border-color:#6b9473;box-shadow:0 0 0 3px rgba(93,145,99,.22)}
+.form-actions .button{font-weight:700}
+:is(a,button,input,select,textarea,summary,[role="tab"]):focus-visible{outline:3px solid var(--finish-ring);outline-offset:3px}
+header>.language-picker button:focus-visible{outline:3px solid #557d4f!important;outline-offset:3px!important}
+header>nav>a:focus-visible{outline:3px solid var(--finish-ring);outline-offset:3px;border-radius:4px}
+a.skip:focus-visible{outline:3px solid var(--finish-ring)}
+:where(.button,.quote-control,.spotlight-options button,.report-options button){touch-action:manipulation}
+:where(.case-lab-tabs a,.quote-step-actions button,.report-options button,.kpi-months button){min-height:44px}
+.report-demo{max-width:100%}
+.report-graph{overflow:hidden}
+.report-metric{min-width:0}
+.report-metric strong{overflow-wrap:anywhere}
+.case-lab-tabs a{line-height:1.3}
+.case-lab-table{max-width:100%}
+.sample figcaption{padding:clamp(16px,2.8vw,24px)}
+.sample figcaption>*{max-width:100%}
+.case-bottom{flex-wrap:wrap}
+footer{min-height:88px}
+@media(max-width:1000px){
+  .case-meta{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .case-meta>div:last-child:nth-child(odd){grid-column:1/-1}
+  .case-layout{gap:2rem}
+}
+@media(max-width:800px){
+  .hero h1{font-size:clamp(2.55rem,7vw + .4rem,4.6rem)}
+  .case-hero h1{font-size:clamp(2.2rem,6vw + .4rem,4rem)}
+  .case-meta{grid-template-columns:minmax(0,1fr)}
+  .case-meta>div:last-child:nth-child(odd){grid-column:auto}
+  .case-meta>div{padding:14px}
+  .contact{margin-left:24px;margin-right:24px}
+  .case-lab{margin-top:1.2rem;margin-bottom:2rem}
+  .case-layout{grid-template-columns:minmax(0,1fr)}
+  .case-nav{gap:6px 14px}
+  .case-nav a{white-space:normal}
+  .offer-grid{gap:16px}
+  .quote-step-header h3{font-size:clamp(1.25rem,5vw,1.7rem)}
+}
+@media(max-width:540px){
+  .hero h1{font-size:clamp(2.35rem,9.2vw + .15rem,3.25rem);line-height:1.1}
+  .case-hero h1{font-size:clamp(2.05rem,7.8vw + .1rem,3rem);line-height:1.13}
+  .story-board,.case-lab,.quote-step{border-radius:10px}
+  .contact{margin:0 18px 26px;padding:25px 21px}
+  .contact h2{font-size:clamp(2.15rem,8.4vw,3.1rem)}
+  .case-main{padding-left:20px;padding-right:20px}
+  .case-meta{gap:8px}
+  .case-meta>div{padding:12px 13px}
+  .case-image-wrap{margin:1rem 0 1.5rem}
+  html body header>nav{gap:7px 12px!important}
+  header>nav>a:last-child{min-height:42px}
+  .brand{overflow-wrap:normal}
+  .case-lab-tabs{gap:4px}
+  .case-lab-tabs a{font-size:.78rem}
+  .quote-progress li span{line-height:1.25}
+  .quote-step-actions{gap:10px}
+  footer{gap:12px}
+}
+@media(hover:none){
+  .offer:hover,.sample:hover,.assurance-card:hover{box-shadow:0 2px 0 rgba(17,50,33,.015);transform:none}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto!important}
+  .offer,.sample,.assurance-card,.case-nav a{animation:none!important;transition:none!important;transform:none!important}
+}
