@@ -104,3 +104,21 @@ The animations and bilingual additions were committed to the GitHub `main` branc
 - https://www.nngroup.com/articles/animation-duration/
 - https://web.dev/articles/animations-guide
 - https://primer.style/accessibility/design-guidance/motion-and-animation/
+
+
+## Cross-page navigation polish · November 2026
+
+**Decision:** a quiet native *cross-document View Transition* rather than a slider, page wipe, elaborate zoom, or a JavaScript router. This matches the research's "boutique reporting consultancy" positioning: practical, calm, credible, and quick.
+
+- Old document gently fades in **160ms**, with only a 3px upward exit.
+- New document arrives over **240ms**, with a 5px upward settling motion.
+- Shared site header uses a named snapshot so it stays visually continuous between pages and does not become a floating overlay.
+- All six first-party HTML pages load the same stylesheet, `page-transition-v1.css`, so both the source and destination opt in.
+- Hash-only links preserve normal on-page smooth scrolling; external links and the FormSubmit form are not intercepted.
+- No navigation delays, no JavaScript-dependent router, no permanent loading screen, and no added animation library.
+- `prefers-reduced-motion: reduce` disables cross-document transitions.
+- Browsers without cross-document View Transition support continue navigating normally, rather than having a fragile custom fallback.
+
+**Sources:** [MDN @view-transition](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@view-transition), [Google Chrome — Cross-Document Transitions](https://developer.chrome.com/docs/modern-web-guidance/guides/ui-behaviors/cross-document-transitions), [WebKit's cross-document crossfade guidance](https://webkit.org/blog/16967/two-lines-of-cross-document-view-transitions-code-you-can-use-on-every-website-today/), [Nielsen Norman Group — Animation Duration](https://www.nngroup.com/articles/animation-duration/).
+
+**Validation caveat:** GitHub repository source was checked; the live GitHub Pages deployment could not be fetched from the research/testing environment, so device-level visual verification remains pending.
