@@ -1,4 +1,4 @@
-/* Site polish v3 — no fixed overlays, no header repositioning, no dependencies */
+/* Site polish v3: no fixed overlays, no header repositioning, no dependencies */
 .hero{background:radial-gradient(ellipse 520px 320px at 98% 0%,rgba(178,215,152,.16),transparent 75%)}
 .hero h1 em{text-decoration-line:underline;text-decoration-color:rgba(154,189,118,.55);text-decoration-thickness:.055em;text-underline-offset:.12em}
 .story-board>.story-demo{display:block;min-width:0;max-width:100%}

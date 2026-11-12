@@ -1,4 +1,4 @@
-/* Portfolio experience suite v1 — scoped components, no global header changes. */
+/* Portfolio experience suite v1: scoped components, no global header changes. */
 :root{--experience-ease:cubic-bezier(.22,1,.36,1);--experience-ink:#192e2a;--experience-line:#d2d8ce;--experience-bg:#fbfaf6}
 /* 1. Drag/keyboard Excel cleanup comparison */
 .excel-compare{margin:1.65rem 0 2.1rem;min-width:0;border:1px solid var(--experience-line);border-radius:12px;overflow:hidden;background:#fff;box-shadow:0 20px 36px -34px #123b2e55}

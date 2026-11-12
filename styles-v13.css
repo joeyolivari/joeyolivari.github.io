@@ -11,7 +11,7 @@ html{scroll-padding-top:1.5rem}body{font-size:1rem}.eyebrow{font-size:.72rem;let
 h1,h2,h3,p,a,span{overflow-wrap:anywhere}.intro>*{min-width:0}.contact>a{gap:.5rem}.contact>a span{flex-shrink:0}.steps,.proof-strip,.case-meta{grid-template-columns:repeat(3,minmax(0,1fr))}@media(max-width:800px){.steps,.proof-strip,.case-meta{grid-template-columns:minmax(0,1fr)}}
 /* Services site: offers, price tables, samples and inquiry form. */
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-/* Header navigation — a single source of truth for the active page.
+/* Header navigation: a single source of truth for the active page.
  * Only the selected page has a green line. Unselected links stay unlined,
  * including on hover. The quote CTA remains a button. */
 header > nav > a:not(:last-child) {

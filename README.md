@@ -1,16 +1,16 @@
-# Joey Olivari — Reporting & Excel Services
+# Joey Olivari: Reporting & Excel Services
 
 Static GitHub Pages website: https://joeyolivari.github.io/
 
 ## Main pages
-- `index.html` — services-first homepage, industry examples, and verifiable reporting evidence
-- `services.html` — services and pricing, downloadable fictional workbooks, FAQs, and guided quote request
-- `excel-cleanup-case-study.html` and `budget-tracker-case-study.html` — step-by-step Excel sample case studies
-- `ai-command-center.html` and `sql-quest.html` — independent technical project case studies
-- `career-tools.html` — separate resume rewrite service (unchanged in this phase)
-- `thanks.html` — quote handoff page, accessed after successful FormSubmit redirection
-- `404.html` — custom GitHub Pages error screen using absolute asset paths
-- `privacy.html` — data-use and temporary language-switch draft-storage disclosure
+- `index.html`: services-first homepage, industry examples, and verifiable reporting evidence
+- `services.html`: services and pricing, downloadable fictional workbooks, FAQs, and guided quote request
+- `excel-cleanup-case-study.html` and `budget-tracker-case-study.html`: step-by-step Excel sample case studies
+- `ai-command-center.html` and `sql-quest.html`: independent technical project case studies
+- `career-tools.html`: separate resume rewrite service (unchanged in this phase)
+- `thanks.html`: quote handoff page, accessed after successful FormSubmit redirection
+- `404.html`: custom GitHub Pages error screen using absolute asset paths
+- `privacy.html`: data-use and temporary language-switch draft-storage disclosure
 
 ## Bilingual structure
 - Spanish static pages are in `es/` with translated text in the HTML source.

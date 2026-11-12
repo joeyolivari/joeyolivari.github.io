@@ -154,3 +154,24 @@ test('unpublished testimonials are not invented',async({page})=>{
   await expect(page.locator('#client-feedback')).toBeHidden();
   await expect(page.locator('#client-feedback .client-testimonial')).toHaveCount(0);
 });
+
+
+const noEmDashPages=['/','/services.html','/career-tools.html','/privacy.html','/ai-command-center.html','/sql-quest.html','/excel-cleanup-case-study.html','/budget-tracker-case-study.html','/thanks.html','/404.html'];
+const forbiddenEmDash=String.fromCharCode(8212);
+for(const path of noEmDashPages){
+  for(const prefix of ['','/es']){
+    test('visible copy punctuation '+(prefix||'en')+path,async({page})=>{
+      await page.goto(prefix+path,{waitUntil:'domcontentloaded'});
+      expect(await page.locator('body').innerText()).not.toContain(forbiddenEmDash);
+      expect(await page.title()).not.toContain(forbiddenEmDash);
+      await expect(page.locator('header > .language-picker')).toHaveCount(1);
+    });
+  }
+}
+test('not-applicable comparison cells in both languages',async({page})=>{
+  await page.goto('/services.html#samples',{waitUntil:'domcontentloaded'});
+  await expect(page.locator('td[aria-label="Not applicable"]')).toHaveCount(2);
+  await expect(page.locator('td[aria-label="Not applicable"]').first()).toHaveText('N/A');
+  await page.goto('/es/services.html#samples',{waitUntil:'domcontentloaded'});
+  await expect(page.locator('td[aria-label="No aplica"]')).toHaveCount(2);
+});
