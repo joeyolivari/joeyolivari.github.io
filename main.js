@@ -39,17 +39,8 @@ if (form) {
       return;
     }
     status.classList.remove('error');
-    const v = name => (form.elements[name].value || '').trim();
-    const lines = ['Name: ' + v('name')];
-    if (v('business')) lines.push('Business: ' + v('business'));
-    lines.push('Service: ' + v('service'));
-    if (v('size')) lines.push('Size: ' + v('size'));
-    if (v('deadline')) lines.push('Deadline: ' + v('deadline'));
-    if (v('version')) lines.push('Excel version: ' + v('version'));
-    lines.push('', 'What the report should answer:', v('goal'), '', '(I can attach a sample file with sensitive details removed.)');
-    const subject = 'Quote request: ' + v('service');
-    window.location.href = 'mailto:joeyolivari@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(lines.join('\n'));
-    status.textContent = 'Your email app should open with the message ready. Press send there to reach me.';
+    status.textContent = 'Submitting your inquiry securely…';
+    form.submit();
   });
   form.querySelectorAll('[required]').forEach(el => el.addEventListener('input', () => el.removeAttribute('aria-invalid')));
 }
