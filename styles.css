@@ -80,3 +80,23 @@ header .language-picker button:focus-visible{outline:2px solid #769f48;outline-o
 @media(min-width:801px){header nav{margin-left:auto}header .language-picker{margin-left:22px}}
 @media(max-width:800px){header{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;column-gap:12px;row-gap:16px}header .brand{grid-column:1;grid-row:1;min-width:0}header .language-picker{grid-column:2;grid-row:1;margin:0;justify-self:end}header nav{grid-column:1/-1;grid-row:2;display:flex;flex-wrap:wrap;gap:10px 18px;min-width:0}header .language-picker button{padding:6px 9px;min-width:35px;min-height:32px}}
 @media(max-width:400px){header{padding:16px 20px;column-gap:8px;row-gap:12px}header nav{gap:9px 14px}header .language-picker{padding:2px}header .language-picker button{padding:6px 8px;min-width:32px}}
+
+/* Header overflow fix: reserve a dedicated slot for language selection. */
+header{min-width:0;column-gap:18px}
+header nav{min-width:0}
+header .language-picker{position:static!important;inset:auto!important;z-index:auto!important;box-shadow:none!important;margin-left:0!important;flex-shrink:0}
+@media(max-width:1200px){
+ header{display:grid!important;grid-template-columns:minmax(0,1fr) max-content!important;grid-template-rows:auto auto;align-items:center;column-gap:16px;row-gap:14px}
+ header>.brand{grid-column:1!important;grid-row:1!important;min-width:0}
+ header>.language-picker{grid-column:2!important;grid-row:1!important;justify-self:end;align-self:center}
+ header>nav{grid-column:1/-1!important;grid-row:2!important;margin:0!important;display:flex;justify-content:flex-start;flex-wrap:wrap;gap:10px 22px;width:100%;min-width:0}
+ header>nav a{flex:0 0 auto}
+}
+@media(max-width:600px){
+ header{padding:16px 20px!important;row-gap:13px!important}
+ header>.brand{font-size:13px}
+ header>nav{gap:10px 15px!important;font-size:12px!important}
+ header>nav a:last-child{padding:8px 12px}
+ header .language-picker{padding:2px!important}
+ header .language-picker button{min-width:33px;min-height:32px;padding:6px 8px}
+}
