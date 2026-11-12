@@ -100,3 +100,10 @@ header .language-picker{position:static!important;inset:auto!important;z-index:a
  header .language-picker{padding:2px!important}
  header .language-picker button{min-width:33px;min-height:32px;padding:6px 8px}
 }
+
+/* Final navigation placement: EN/ES is an inline nav item immediately before quote. */
+header nav>.language-picker{position:static!important;inset:auto!important;z-index:auto!important;box-shadow:none!important;display:inline-flex!important;grid-column:auto!important;grid-row:auto!important;order:0;align-self:center;justify-self:auto;margin:0!important;vertical-align:middle}
+header nav>a:last-child{order:1}
+@media(min-width:1201px){header nav{display:flex;align-items:center;flex-wrap:wrap;justify-content:flex-end;gap:12px 22px}header nav>.language-picker{margin:0!important}}
+@media(max-width:1200px){header>nav>.language-picker{grid-column:auto!important;grid-row:auto!important;flex:0 0 auto}header>nav{align-items:center}}
+@media(max-width:600px){header>nav{gap:9px 12px!important}header>nav>.language-picker{padding:2px!important}header>nav>.language-picker button{min-width:31px;min-height:30px;padding:5px 7px}}
