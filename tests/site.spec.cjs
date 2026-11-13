@@ -175,3 +175,31 @@ test('not-applicable comparison cells in both languages',async({page})=>{
   await page.goto('/es/services.html#samples',{waitUntil:'domcontentloaded'});
   await expect(page.locator('td[aria-label="No aplica"]')).toHaveCount(2);
 });
+
+test('homepage Open Graph card has correct text and crop-safe image', async ({page,request}) => {
+  const img='https://joeyolivari.github.io/assets/social-portfolio-2026.jpg';
+  for(const [route,locale] of [['/','en_CA'],['/es/','es_ES']]){
+    await page.goto(route,{waitUntil:'domcontentloaded'});
+    await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content',img);
+    await expect(page.locator('meta[property="og:image:width"]')).toHaveAttribute('content','1200');
+    await expect(page.locator('meta[property="og:image:height"]')).toHaveAttribute('content','630');
+    await expect(page.locator('meta[property="og:image:type"]')).toHaveAttribute('content','image/jpeg');
+    await expect(page.locator('meta[property="og:locale"]')).toHaveAttribute('content',locale);
+    await expect(page.locator('meta[name="twitter:image"]')).toHaveAttribute('content',img);
+    const title=await page.locator('meta[property="og:title"]').getAttribute('content');
+    const description=await page.locator('meta[property="og:description"]').getAttribute('content');
+    expect(title).toContain('Joey Olivari');
+    expect(title).not.toContain('7+');
+    expect(description).not.toMatch(/\b\d+\+ years\b/i);
+    expect(description.length).toBeGreaterThan(75);
+    await expect(page.locator('meta[property="og:image:alt"]')).toHaveCount(1);
+  }
+  await page.goto('/');
+  const info=await page.evaluate(async()=>{
+    const im=new Image();
+    im.src=document.querySelector('meta[property="og:image"]').content;
+    await im.decode();
+    return {w:im.naturalWidth,h:im.naturalHeight};
+  });
+  expect(info).toEqual({w:1200,h:630});
+});
