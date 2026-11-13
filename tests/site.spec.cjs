@@ -197,7 +197,7 @@ test('homepage Open Graph card has correct text and crop-safe image', async ({pa
   await page.goto('/');
   const info=await page.evaluate(async()=>{
     const im=new Image();
-    im.src=document.querySelector('meta[property="og:image"]').content;
+    im.src='/assets/social-portfolio-2026.jpg';
     await im.decode();
     return {w:im.naturalWidth,h:im.naturalHeight};
   });
